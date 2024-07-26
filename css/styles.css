@@ -192,6 +192,16 @@ img {
     height: 10rem;
 }
 
+@media (max-width: 768px) {
+    .header{
+        height: 80px;
+    }
+    .logo{
+        height: 80px !important;
+        width: 130px !important;
+    }
+}
+
 .logo, .navegacion-enlace {
     display: flex;
     justify-content: center;
@@ -315,6 +325,7 @@ header .navegacion-enlace:hover {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 3rem;
+        align-items: center;
     }
 }
 
