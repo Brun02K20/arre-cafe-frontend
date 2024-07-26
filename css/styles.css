@@ -891,7 +891,7 @@ footer p{
 
 .product-index img{
     /*border-radius: 1.5rem;*/
-    height: 123px;
+    height: 134px !important;
     width: 123px;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
@@ -927,6 +927,13 @@ footer p{
     width: 136px;
    }
 }
+@media (max-width: 768px) {
+    .product-index img{
+        height: 121px !important;
+        width: 136px;
+       }
+}
+
 
 .product {
     box-sizing: border-box;
