@@ -335,7 +335,7 @@ async function deleteCategory(categoryId) {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                await fetchWithAuth(`https://arre-backend-one.vercel.app/arre/categorias/${categoryId}`, {
+                await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/categorias/${categoryId}`, {
                     method: 'DELETE'
                 });
 
@@ -456,7 +456,7 @@ async function addSubcategory(categoryId) {
             if (response.ok) {
                 const data = response.data;
                 console.log("Respuesta de la API al agregar subcategoría:", data);
-                Swal.fire('Éxito', 'Producto creado correctamente.', 'success');
+                Swal.fire('Éxito', 'Subcategoria creada correctamente.', 'success');
                 createSubcategoryElement(categoryId, data.id, data.nombre);
             } else {
                 Swal.fire('Error', response.data ? response.data.message : 'Hubo un error al crear la subcategoría', 'error');

@@ -1670,3 +1670,28 @@ input:checked + .slider:before {
 
 
 
+/*Nuevo welcome*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 10px; /* Espacio entre columnas */
+    padding: 20px;
+}
+
+#new-welcome .grid-item {
+    position: relative; /* Para posicionar la imagen de forma absoluta */
+    overflow: hidden; /* Oculta la parte de la imagen que se desborda del contenedor */
+    border-radius: .3rem;
+}
+
+#new-welcome .grid-item img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionarse */
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
+    }
+}
