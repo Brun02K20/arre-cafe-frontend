@@ -17,8 +17,8 @@ function checkLoginStatus() {
     }
 }
 
-// Ejecutar la verificación de sesión solo en index-admin.html y menus.html
-if (window.location.pathname.endsWith('index-admin.html') || window.location.pathname.endsWith('menu-admin.html') || window.location.pathname.endsWith('index-admin') || window.location.pathname.endsWith('menu-admin') ) {
+// Ejecutar la verificación de sesión solo en index-admin.html y menu-admin.html
+if (window.location.pathname.endsWith('index-admin.html') || window.location.pathname.endsWith('menu-admin.html') || window.location.pathname.endsWith('index-admin') || window.location.pathname.endsWith('menu-admin')) {
     checkLoginStatus();
 }
 

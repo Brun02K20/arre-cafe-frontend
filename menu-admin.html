@@ -40,10 +40,11 @@
     </header>
         <!-- CARTA CLIENTE-->
         
+
+        <h2 id="title-menu" class="centrar-texto titulo_carta title-h2">Menú</h2>
         <div id="barra-busqueda">
 
         </div>
-        <h2 class="centrar-texto titulo_carta title-h2">Menú</h2>
         <div id="btnAddCategory">
             <button id="agregarCate" onclick="addCategory()"><i class="bi bi-plus-circle"></i> Agregar Categoría</button>
         </div>
@@ -51,67 +52,12 @@
         <!--FIN CARTA CLIENTE-->
         <div id="loading-screen" class="hidden">
             <div class="spinner"></div>
-        </div>
-
-    <!--
-    <h1 class="centrar-texto">Carta</h1>
-    <div id="carta">
-        <button class="btn-menu" onclick="addCategory()">Agregar Categoría</button>
-    </div>
-    <div id="adminPanel">
-        <button id="agregar-producto-btn" onclick="mostrarForm()">Agregar Producto</button>
-        <form id="createProductoForm" class="none">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-        
-            <div class="form-group">
-                <label for="precio">Precio:</label>
-                <input type="number" id="precio" name="precio" required>
-            </div>
-        
-            <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" required></textarea>
-            </div>
-        
-            <div class="form-group">
-                <label for="idSubCategoria">Subcategoría:</label>
-                <input type="number" id="idSubCategoria" name="idSubCategoria">
-            </div>
-        
-            <div class="form-group">
-                <label for="foto">Foto:</label>
-                <input type="file" id="foto" name="foto" accept="image/*" required>
-            </div>
-            
-            <div id="botonesForm">
-                <button id="crearProducto" type="submit">Crear Producto</button>
-                <button id="cancelarAgergarProducto" onclick="ocultarForm()">Cancelar</button>
-            </div>
-        </form>
-        
-
-        <div id="categoriesContainer">
-            <button id="agregarCate" onclick="addCategory()">Agregar Categoría</button>
-            <button id="mostrar-categorias-btn" onclick="mostrarCategorias()">Mostrar Categorías</button>
-            <button id="ocultar-categorias-btn" class="none" onclick="ocultarCategorias()">Ocultar Categorías</button>
-            <ul id="lista-categorias"></ul>
-        </div>
-        
-
-        <div id="subcategoriesContainer">
-            <button id="agregarSub" onclick="addSubcategoria()">Agregar Subcategoría</button>
-            <button id="mostrar-subcategorias-btn" onclick="mostrarSubCategorias()">Mostrar Subcategorías</button>
-            <button id="ocultar-subcategorias-btn" class="none" onclick="ocultarSubCategorias()">Ocultar Subategorías</button>
-            <ul id="lista-subcategorias"></ul>
-        </div>        -->
-        
+        </div>     
 
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./main.js"></script>
     <script src="./admin.js"></script>
 </body>
 </html>

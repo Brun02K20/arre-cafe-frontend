@@ -297,7 +297,7 @@ header .navegacion-enlace:hover {
     color: var(--primario);
 }
 
-.contacto{
+.contacto {
     width: 90%;
     margin: 0 auto;
     background-color: var(--gris);
@@ -307,10 +307,7 @@ header .navegacion-enlace:hover {
     -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
-}
-
-.contacto img{
-    height: 100%;
+    display: block;
 }
 
 @media (min-width: 768px) {
@@ -320,6 +317,15 @@ header .navegacion-enlace:hover {
         column-gap: 3rem;
     }
 }
+
+
+.contacto img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Opcional: elimina el espacio debajo de la imagen */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin deformarse */
+}
+
 
 /*formulario contacto*/
 .campo {
@@ -536,12 +542,15 @@ body {
     align-items: center;
 }
 
+
+
 .menu-toggle, .menu-toggle-admin {
     font-size: 4rem;
     border: none;
     background: none;
     cursor: pointer;
     display: none;
+    color: #000 !important;
 }
 
 .navegacion {
@@ -1171,10 +1180,15 @@ footer p{
     --gris: #e1e1e1;
 }*/
 
+#title-menu{
+    margin-top: 20px;
+}
+
 #barra-busqueda {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     margin-bottom: 20px;
     background: linear-gradient(45deg, #8b735f, #8b735f); /* Fondo degradado con los colores primario y secundario */
     /*background: linear-gradient(45deg, #b3b3b3d3, rgb(192, 192, 192)); /* Fondo degradado con los colores primario y secundario */

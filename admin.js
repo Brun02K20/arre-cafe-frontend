@@ -456,6 +456,7 @@ async function addSubcategory(categoryId) {
             if (response.ok) {
                 const data = response.data;
                 console.log("Respuesta de la API al agregar subcategoría:", data);
+                Swal.fire('Éxito', 'Producto creado correctamente.', 'success');
                 createSubcategoryElement(categoryId, data.id, data.nombre);
             } else {
                 Swal.fire('Error', response.data ? response.data.message : 'Hubo un error al crear la subcategoría', 'error');
@@ -494,6 +495,7 @@ async function editSubcategory(categoryId, subcategoryId) {
                 const subcategoryElement = document.querySelector(`#subcategoria-${subcategoryId} h3`);
                 if (subcategoryElement) {
                     subcategoryElement.textContent = subcategoryTitle;
+                    Swal.fire('Éxito', 'Subcategoría modificada con éxito.', 'success');
                 } else {
                     console.error(`No se encontró el elemento con id subcategoria-${subcategoryId}`);
                 }
@@ -508,26 +510,45 @@ async function editSubcategory(categoryId, subcategoryId) {
 }
 
 async function deleteSubcategory(categoryId, subcategoryId) {
-    try {
-        const response = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/subcategorias/${subcategoryId}`, {
-            method: 'DELETE'
-        });
+    // Mostrar el diálogo de confirmación con SweetAlert
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                const response = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/subcategorias/${subcategoryId}`, {
+                    method: 'DELETE'
+                });
 
-        if (response.ok) {
-            const subcategoryElement = document.getElementById(`subcategoria-${subcategoryId}`);
-            if (subcategoryElement) {
-                subcategoryElement.remove();
-            } else {
-                console.error(`No se encontró el elemento con id subcategoria-${subcategoryId}`);
+                if (response.ok) {
+                    // Mostrar mensaje de éxito
+                    Swal.fire('Eliminado', 'Subcategoría eliminada con éxito.', 'success');
+                    
+                    // Eliminar el elemento de la interfaz de usuario
+                    const subcategoryElement = document.getElementById(`subcategoria-${subcategoryId}`);
+                    if (subcategoryElement) {
+                        subcategoryElement.remove();
+                    } else {
+                        console.error(`No se encontró el elemento con id subcategoria-${subcategoryId}`);
+                    }
+                } else {
+                    // Mostrar mensaje de error
+                    Swal.fire('Error', response.data ? response.data.message : 'Hubo un error al eliminar la subcategoría', 'error');
+                }
+            } catch (error) {
+                console.error('Error al eliminar la subcategoría:', error);
+                Swal.fire('Error', 'Hubo un error al eliminar la subcategoría', 'error');
             }
-        } else {
-            Swal.fire('Error', response.data ? response.data.message : 'Hubo un error al eliminar la subcategoría', 'error');
         }
-    } catch (error) {
-        console.error('Error al eliminar la subcategoría:', error);
-        Swal.fire('Error', 'Hubo un error al eliminar la subcategoría', 'error');
-    }
+    });
 }
+
 
 
 function createSubcategoryElement(categoryId, subcategoryId, subcategoryName) {
@@ -678,23 +699,37 @@ async function editProduct(productId, currentProductName, currentProductPrice, c
 }
 
 async function deleteProduct(productId) {
-    try {
-        const response = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/productos/${productId}`, {
-            method: 'DELETE'
-        });
+    // Mostrar el diálogo de confirmación con SweetAlert
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                const response = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/productos/${productId}`, {
+                    method: 'DELETE'
+                });
 
-        if (response.ok) {
-            Swal.fire('Éxito', 'Producto eliminado con éxito.', 'success');
-            await fetchCarta(); // Actualizar la carta después de eliminar
-        } else {
-            const errorData = await response.json();
-            Swal.fire('Error', errorData.message || 'Hubo un error al eliminar el producto', 'error');
+                if (response.ok) {
+                    Swal.fire('Éxito', 'Producto eliminado con éxito.', 'success');
+                    await fetchCarta(); // Actualizar la carta después de eliminar
+                } else {
+                    const errorData = await response.json();
+                    Swal.fire('Error', errorData.message || 'Hubo un error al eliminar el producto', 'error');
+                }
+            } catch (error) {
+                console.error('Error al eliminar el producto:', error);
+                Swal.fire('Error', 'Hubo un error al eliminar el producto', 'error');
+            }
         }
-    } catch (error) {
-        console.error('Error al eliminar el producto:', error);
-        Swal.fire('Error', 'Hubo un error al eliminar el producto', 'error');
-    }
+    });
 }
+
 
 
 
@@ -806,96 +841,125 @@ function displayCarruselAdmin(data) {
 window.addEventListener('load', fetchCarruselAdmin);
 
 async function addImageToCarousel() {
-    const imageInput = document.getElementById('imageInput');
-    const file = imageInput.files[0];
+    // Mostrar el diálogo de confirmación con SweetAlert
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Quieres agregar esta imagen al carrusel!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, agregar'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            const imageInput = document.getElementById('imageInput');
+            const file = imageInput.files[0];
 
-    if (!file) {
-        console.log('Error: Por favor, selecciona una imagen para agregar.');
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-        const { data, ok } = await fetchWithAuth('https://arre-backend-one.vercel.app/api/arre/productos/carrusel', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (ok) {
-            const imageUrl = data.url; // Ajusta según la estructura de respuesta del servidor
-
-            const newCarouselItem = document.createElement('div');
-            newCarouselItem.className = 'carousel-item';
-            const img = document.createElement('img');
-            img.className = 'd-block w-100';
-            img.src = imageUrl;
-            newCarouselItem.appendChild(img);
-
-            const carouselInner = document.querySelector('.carousel-inner');
-            const activeItem = carouselInner.querySelector('.active');
-            if (activeItem) {
-                activeItem.classList.remove('active');
+            if (!file) {
+                Swal.fire('Error', 'Por favor, selecciona una imagen para agregar.', 'error');
+                return;
             }
-            newCarouselItem.classList.add('active');
-            carouselInner.appendChild(newCarouselItem);
 
-            console.log('Éxito: Imagen agregada al carrusel.');
-        } else {
-            console.log('Error: No se pudo agregar la imagen al carrusel.');
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const { data, ok } = await fetchWithAuth('https://arre-backend-one.vercel.app/api/arre/productos/carrusel', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (ok) {
+                    const imageUrl = data.url; // Ajusta según la estructura de respuesta del servidor
+
+                    const newCarouselItem = document.createElement('div');
+                    newCarouselItem.className = 'carousel-item';
+                    const img = document.createElement('img');
+                    img.className = 'd-block w-100';
+                    img.src = imageUrl;
+                    newCarouselItem.appendChild(img);
+
+                    const carouselInner = document.querySelector('.carousel-inner');
+                    const activeItem = carouselInner.querySelector('.active');
+                    if (activeItem) {
+                        activeItem.classList.remove('active');
+                    }
+                    newCarouselItem.classList.add('active');
+                    carouselInner.appendChild(newCarouselItem);
+
+                    Swal.fire('Éxito', 'Imagen agregada al carrusel correctamente.', 'success');
+                } else {
+                    Swal.fire('Error', 'No se pudo agregar la imagen al carrusel.', 'error');
+                }
+            } catch (error) {
+                console.error('Error al agregar la imagen:', error);
+                Swal.fire('Error', 'Hubo un error al agregar la imagen.', 'error');
+            }
         }
-    } catch (error) {
-        console.error('Error al agregar la imagen:', error);
-    }
+    });
 }
 
 async function deleteImageFromCarousel() {
-    const activeItem = document.querySelector('.carousel-inner .active');
-    if (!activeItem) {
-        console.log('Error: No hay una imagen activa para eliminar.');
-        return;
-    }
-
-    const img = activeItem.querySelector('img');
-    const imageUrl = img.src;
-
-    console.log('URL de la imagen para eliminar:', imageUrl);
-
-    try {
-        const { data, ok } = await fetchWithAuth('https://arre-backend-one.vercel.app/api/arre/productos/carrusel/img', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ src: imageUrl })
-        });
-
-        if (ok) {
-            console.log('Imagen eliminada correctamente en el servidor.');
-            
-            // Elimina el item del carrusel
-            activeItem.remove();
-            const carouselInner = document.querySelector('.carousel-inner');
-            const items = carouselInner.querySelectorAll('.carousel-item');
-            if (items.length > 0) {
-                if (carouselInner.querySelector('.active') === null) {
-                    items[0].classList.add('active');
-                }
-            } else {
-                console.log('Error: El carrusel está vacío después de eliminar la imagen.');
+    // Mostrar el diálogo de confirmación con SweetAlert
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            const activeItem = document.querySelector('.carousel-inner .active');
+            if (!activeItem) {
+                Swal.fire('Error', 'No hay una imagen activa para eliminar.', 'error');
+                return;
             }
 
-            // Volver a cargar la lista actualizada del carrusel
-            await fetchCarruselAdmin();
+            const img = activeItem.querySelector('img');
+            const imageUrl = img.src;
 
-        } else {
-            console.log('Error: No se pudo eliminar la imagen del carrusel.');
+            console.log('URL de la imagen para eliminar:', imageUrl);
+
+            try {
+                const { data, ok } = await fetchWithAuth('https://arre-backend-one.vercel.app/api/arre/productos/carrusel/img', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ src: imageUrl })
+                });
+
+                if (ok) {
+                    Swal.fire('Éxito', 'Imagen eliminada correctamente.', 'success');
+                    
+                    // Elimina el item del carrusel
+                    activeItem.remove();
+                    const carouselInner = document.querySelector('.carousel-inner');
+                    const items = carouselInner.querySelectorAll('.carousel-item');
+                    if (items.length > 0) {
+                        if (carouselInner.querySelector('.active') === null) {
+                            items[0].classList.add('active');
+                        }
+                    } else {
+                        Swal.fire('Error', 'El carrusel está vacío después de eliminar la imagen.', 'error');
+                    }
+
+                    // Volver a cargar la lista actualizada del carrusel
+                    await fetchCarruselAdmin();
+
+                } else {
+                    Swal.fire('Error', 'No se pudo eliminar la imagen del carrusel.', 'error');
+                }
+            } catch (error) {
+                console.error('Error al eliminar la imagen:', error);
+                Swal.fire('Error', 'Hubo un error al eliminar la imagen.', 'error');
+            }
         }
-    } catch (error) {
-        console.error('Error al eliminar la imagen:', error);
-    }
+    });
 }
+
 
 
 // Event listeners for buttons
