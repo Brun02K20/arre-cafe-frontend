@@ -854,7 +854,7 @@ footer p{
 .product-index {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 1px solid var(--primario);
     border-radius: 5px;
     background-color: #ebebeb;
     word-wrap: break-word;
