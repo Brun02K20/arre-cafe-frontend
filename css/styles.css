@@ -167,7 +167,7 @@ img {
 
 .header a{
     font-weight: 500;
-    padding: 15.2px;
+    
 }
 
 .header a, .footer a{
@@ -537,21 +537,13 @@ body {
     padding: 0;
 }
 
-
-.contenedor {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
 .barra {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* Asegúrate de que los elementos estén centrados verticalmente */
-    padding: 0 1rem; /* Añade un poco de relleno lateral para separación */
+    align-items: center;
+    padding: 0 1rem;
 }
-
 
 
 .menu-toggle, .menu-toggle-admin {
@@ -588,12 +580,7 @@ body {
         gap: 1rem;
         left: 10px;
     }
-    .header{
-        top: 0;
-        left: 0;
-        width: 100%; 
-        z-index: 1000; 
-    }
+
     .navegacion a{
         color: var(--primario);
     }
