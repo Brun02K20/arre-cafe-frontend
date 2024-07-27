@@ -177,9 +177,8 @@ img {
 }
 
 .barra {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0 1rem;
 }
