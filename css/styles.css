@@ -546,8 +546,10 @@ body {
 
 .barra {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Asegúrate de que los elementos estén centrados verticalmente */
+    padding: 0 1rem; /* Añade un poco de relleno lateral para separación */
 }
 
 
