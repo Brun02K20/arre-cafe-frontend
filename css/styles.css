@@ -192,7 +192,9 @@ img {
     margin: 10px;
    }
 }
-
+.iniciar-sesion-icono i{
+    padding: 15.2px;
+}
 .logo img{
     height: 10rem;
 }
@@ -580,7 +582,12 @@ body {
         gap: 1rem;
         left: 10px;
     }
-
+    .header{
+        top: 0;
+        left: 0;
+        width: 100%; 
+        z-index: 1000; 
+    }
     .navegacion a{
         color: var(--primario);
     }
