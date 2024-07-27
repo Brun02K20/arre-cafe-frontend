@@ -146,13 +146,11 @@ img {
     text-align: center;
 }
 
-@media (min-width: 768px) {
-   .contenedor {
+
+.contenedor {
     max-width: 120rem;
     margin: 0 auto;
 }
-}
-
 
 
 /*header*/
@@ -169,6 +167,7 @@ img {
 
 .header a{
     font-weight: 500;
+    padding: 15.2px;
     
 }
 
@@ -178,12 +177,13 @@ img {
 }
 
 .barra {
-    display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
 }
+
 @media (min-width: 768px) {
     .barra {
         display: flex;
@@ -201,9 +201,7 @@ img {
     margin: 10px;
    }
 }
-.iniciar-sesion-icono i{
-    padding: 15.2px;
-}
+
 .logo img{
     height: 10rem;
 }
