@@ -756,7 +756,7 @@ function createProductElement(subcategoryId, productId, name, price, description
         productInfoDiv.innerHTML = `
             <strong>${name}</strong> <br> 
             <p>${description}</p> 
-            $${price}
+            <div class="divPrecio"> $${price} </div>
         `;
 
         productDiv.appendChild(productImg);
