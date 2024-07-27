@@ -1707,3 +1707,10 @@ input:checked + .slider:before {
     }
 }
 
+.prueba {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.prueba p{
+    text-align: center;
+}
