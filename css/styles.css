@@ -175,6 +175,13 @@ img {
     color: var(--primario);
 }
 
+.barra {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
 @media (min-width: 768px) {
     .barra {
         display: flex;
@@ -539,13 +546,6 @@ body {
     padding: 0;
 }
 
-.barra {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
 
 
 .menu-toggle, .menu-toggle-admin {
