@@ -146,11 +146,13 @@ img {
     text-align: center;
 }
 
-
-.contenedor {
+@media (min-width: 768px) {
+   .contenedor {
     max-width: 120rem;
     margin: 0 auto;
 }
+}
+
 
 
 /*header*/
