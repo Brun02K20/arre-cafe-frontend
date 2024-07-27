@@ -63,7 +63,7 @@ function sweet(icon, title){
 document.addEventListener('DOMContentLoaded', () => {
     // Función para inicializar el carrusel
     const initializeCarousel = () => {
-        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleAutoplaying'), {
+        const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleFade'), {
             interval: 3000, // Intervalo de 2 segundos
             ride: 'carousel'
         });
