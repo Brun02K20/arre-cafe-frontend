@@ -177,11 +177,19 @@ img {
 }
 
 .barra {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+}
+.icono-barra{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.icono-barra-2{
+    display: flex;
+    flex-direction:row;
 }
 
 @media (min-width: 768px) {
