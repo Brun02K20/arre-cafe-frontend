@@ -928,6 +928,7 @@ footer p{
    }
    .product-index p{
     font-size: 15px;
+    line-height: 20px;
    }
    .product-index img{
     height: 174px;
@@ -954,7 +955,7 @@ footer p{
 
 
 
-@media (max-width: 965px) {
+@media (max-width: 1075px) {
     .products-row {
         grid-template-columns: 1fr;
     }
