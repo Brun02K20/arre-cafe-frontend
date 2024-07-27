@@ -65,7 +65,7 @@ h5 {
 
 /* Estilos base para párrafos en desktop */
 p {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
 }
 
 /* Media Queries para tamaños de pantalla medianos */
@@ -92,7 +92,7 @@ p {
     }
 
     p {
-        font-size: 1.6rem !important;
+        font-size: 1.6rem;
     }
 
     body .welcome p{
@@ -123,7 +123,7 @@ p {
     }
 
     p {
-        font-size: 1.5rem !important;
+        font-size: 1.5rem;
     }
 }
 
@@ -167,6 +167,7 @@ img {
 
 .header a{
     font-weight: 500;
+    padding: 15.2px;
 }
 
 .header a, .footer a{
@@ -186,21 +187,17 @@ img {
         flex-direction: row;
         gap: 1.5rem;
    }
+   .iniciar-sesion-icono-2{
+    display: none;
+    margin: 10px;
+   }
 }
 
 .logo img{
     height: 10rem;
 }
 
-@media (max-width: 768px) {
-    .header{
-        height: 80px;
-    }
-    .logo{
-        height: 80px !important;
-        width: 130px !important;
-    }
-}
+
 
 .logo, .navegacion-enlace {
     display: flex;
@@ -561,7 +558,7 @@ body {
     background: none;
     cursor: pointer;
     display: none;
-    color: #000 !important;
+    color: var(--primario) !important;
 }
 
 .navegacion {
@@ -569,9 +566,7 @@ body {
     gap: 1rem;
 }
 
-.iniciar-sesion-texto {
-    display: none;
-}
+
 
 @media (max-width: 768px) {
 
@@ -584,12 +579,12 @@ body {
         display: none; 
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 10px;
+        top: 80px;
         background: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 1rem;
         gap: 1rem;
+        left: 10px;
     }
     .header{
         top: 0;
@@ -598,12 +593,12 @@ body {
         z-index: 1000; 
     }
     .navegacion a{
-        color: var(--negro);
+        color: var(--primario);
     }
     .navegacion a:hover{
         border-bottom: 1px solid var(--gris);
         transform: scale(1.1);
-        color: var(--primario);
+        color: var(--negro);
     }
     .navegacion.show {
         display: flex;
@@ -910,7 +905,8 @@ footer p{
 
 .product-index p{
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 10px;
+    line-height: 10px;
     color: grey;
 }
 
@@ -1713,3 +1709,4 @@ input:checked + .slider:before {
         grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
     }
 }
+
