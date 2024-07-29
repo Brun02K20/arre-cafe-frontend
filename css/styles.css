@@ -1645,7 +1645,7 @@ footer p{
 
 /* Pantalla de carga */
 
-
+/*
 #loading-screen {
     position: fixed;
     top: 0;
@@ -1682,7 +1682,7 @@ footer p{
     100% {
         transform: rotate(360deg);
     }
-}
+}*/
 
 #btnDark{
     display: flex;
