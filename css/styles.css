@@ -693,6 +693,69 @@ body {
     object-fit: cover !important; /* Mantiene la relación de aspecto y cubre el contenedor */
 }
 
+/* Botones de carrusel */
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: white !important; /* Fondo blanco */
+    width: 80px !important; /* Ajusta el tamaño según sea necesario */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important; /* Asegúrate de que el fondo sea completamente opaco */
+    top: 50% !important; /* Centrado verticalmente */
+    transform: translateY(-50%) !important; /* Ajuste para centrar completamente */
+
+}
+
+@media (max-width: 767px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        background-color: white !important; /* Fondo blanco */
+        width: 40px !important; /* Ajusta el tamaño según sea necesario */
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1 !important; /* Asegúrate de que el fondo sea completamente opaco */
+        top: 50% !important; /* Centrado verticalmente */
+        transform: translateY(-50%) !important; /* Ajuste para centrar completamente */
+
+    }
+}
+
+.carousel-control-next {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 20% 50%); /* Forma personalizada */
+}
+
+.carousel-control-prev {
+    clip-path: polygon(100% 0%, 80% 50%, 100% 100%, 0% 100%, 0% 100%,0% 0%); /* Forma personalizada reflejada */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #8b735f; /* Color del icono */
+    width: 100px !important; /* Ajusta el tamaño del icono según sea necesario */
+    height: 100px !important; /* Ajusta el tamaño del icono según sea necesario */
+    mask-size: contain; /* Asegúrate de que el tamaño de la máscara sea apropiado */
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.carousel-control-prev-icon {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4.293 1.707L1.586 4l2.707 2.293.707-.707L3.707 4l1.293-1.293z" fill="%23ffffff"/></svg>'); /* Ícono de la flecha izquierda */
+}
+
+.carousel-control-next-icon {
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M3.707 6.293L6.414 4 3.707 1.707 3 2.414 4.586 4 3 5.586z" fill="%23ffffff"/></svg>'); /* Ícono de la flecha derecha */
+}
+
+.carousel-control-next-icon:hover, .carousel-control-prev-icon:hover{
+    transform: scale(1.1);
+    transition: all 300ms;
+} 
+
 /* Footer */
 
 footer{
@@ -1588,8 +1651,8 @@ footer p{
     top: 0;
     left: 0;
     width: 100%;
-    height: 1000px;
-    background-color: rgba(255, 255, 255, 0.9);
+    height: 100%;
+    background-color: rgba(144, 109, 79, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1613,8 +1676,12 @@ footer p{
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #btnDark{
