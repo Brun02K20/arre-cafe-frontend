@@ -120,7 +120,8 @@ function displayCarta(data) {
 
                 const productoInfoDiv = document.createElement('div');
                 productoInfoDiv.classList.add('product-info');
-                productoInfoDiv.innerHTML = `<strong>${producto.nombre}</strong> <br> <p>${producto.descripcion}</p> <div class="divPrecio">$${producto.precio}</div>`;
+                productoInfoDiv.innerHTML = `<div class="titulo-descrip"> <strong>${producto.nombre}</strong> <br> <p>${producto.descripcion}</p> </div>
+                                        <div class="divPrecio">$${producto.precio}</div>`;
 
                 productoDiv.appendChild(productoImg);
                 productoDiv.appendChild(productoInfoDiv);
