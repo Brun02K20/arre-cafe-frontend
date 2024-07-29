@@ -871,11 +871,11 @@ footer p{
     background-color: #ebebeb;
     word-wrap: break-word;
     display: grid;
-    grid-template-columns: 123px 1fr;
-    gap: 2rem;
+    grid-template-columns: 143px 1fr;
+    gap: .5rem;
     margin-top: 10px;
     border-radius: 1.5rem;
-    height: 123px;
+    height: 143px;
     line-height: 15px;
     align-items: center;
     -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
@@ -943,8 +943,8 @@ footer p{
 }
 @media (max-width: 768px) {
     .product-index img{
-        height: 121px !important;
-        width: 136px;
+        height: 141px !important;
+        width: 143px;
        }
 }
 
@@ -1721,4 +1721,6 @@ input:checked + .slider:before {
         grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
     }
 }
+
+
 
