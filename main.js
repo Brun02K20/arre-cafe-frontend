@@ -1,3 +1,41 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const carousel = document.getElementById('carouselExampleFade');
+    const carouselInner = document.getElementById('carousel-inner');
+
+    // Función que obtiene las URLs de las imágenes y las muestra en el carrusel
+    async function loadCarrusel() {
+        try {
+            const response = await fetch('https://arre-backend-one.vercel.app/api/arre/productos/carrusel/urls');
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            const data = await response.json();
+            displayCarrusel(data);
+        } catch (error) {
+            console.error('Error fetching the carrusel:', error);
+        }
+    }
+
+    function displayCarrusel(images) {
+        images.forEach((image, index) => {
+            const div = document.createElement('div');
+            div.className = 'carousel-item' + (index === 0 ? ' active' : '');
+            const img = document.createElement('img');
+            img.src = image;
+            img.className = 'd-block w-100';
+            div.appendChild(img);
+            carouselInner.appendChild(div);
+        });
+
+        // Ocultar el spinner y mostrar el carrusel
+        loadingScreen.classList.add('hidden');
+        carousel.style.display = 'block';
+    }
+
+    loadCarrusel();
+});
+
 
 /* Menu hamburguesa */
 document.addEventListener('DOMContentLoaded', function() {
