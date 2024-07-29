@@ -928,7 +928,7 @@ footer p{
     justify-content: end;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
    .product-index strong{
     font-size: 20px;
    }
@@ -941,7 +941,7 @@ footer p{
     width: 176px;
    }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .product-index img{
         height: 141px !important;
         width: 143px;
