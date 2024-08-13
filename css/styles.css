@@ -970,7 +970,7 @@ footer p{
 .product-index img{
     /*border-radius: 1.5rem;*/
     
-    
+    object-fit: cover;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }
