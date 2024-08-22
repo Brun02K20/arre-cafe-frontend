@@ -147,18 +147,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             cartaDiv.appendChild(categoriaDiv);
 
-            // Crear enlaces para las subcategorías
-            categoria.subcategorias.forEach(subcategoria => {
-                const subcategoriaLink = document.createElement('div');
-                subcategoriaLink.className = 'subcategory-link';
-                subcategoriaLink.innerHTML = subcategoria.nombre;
-                subcategoriaLink.onclick = () => {
-                    document.getElementById(`subcategoria-${subcategoria.id}`).scrollIntoView({ behavior: 'smooth' });
-                };
-                barraBusquedaDiv.appendChild(subcategoriaLink);
-            });
+        // Crear enlaces para las subcategorías
+        categoria.subcategorias.forEach(subcategoria => {
+            const subcategoriaLink = document.createElement('div');
+            subcategoriaLink.className = 'subcategory-link';
+            subcategoriaLink.innerHTML = subcategoria.nombre;
+            subcategoriaLink.onclick = () => {
+                const section = document.getElementById(`subcategoria-${subcategoria.id}`);
+                if (section) {
+                    const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = sectionPosition - 200;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+            barraBusquedaDiv.appendChild(subcategoriaLink);
         });
-    }
+    });
+}
 
     window.onload = () => {
         fetchCarta();
