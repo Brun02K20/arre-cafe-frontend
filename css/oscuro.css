@@ -9,8 +9,13 @@ header{
 
 .navegacion{
     background-color: rgb(31, 31, 31) !important;
-    border: 1px solid rgba(180, 180, 180, 0.205) !important;
     border-radius: 8px;
+}
+
+@media (max-width: 786px) {
+    .navegacion{
+        border: 1px solid rgba(180, 180, 180, 0.205) !important;
+    }
 }
 
 h2,h3,h4,p,strong, .divPrecio{

@@ -1209,6 +1209,14 @@ footer p{
     font-size: 20px !important;
 }
 
+.swal2-title {
+    font-size: 30px !important;
+}
+
+.swal2-popup label{
+    font-size: 14px !important;
+}
+
 .swal2-styled {
     margin: .3125em;
     padding: .625em 1.1em;
