@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
             categoriaDiv.innerHTML = `
                 <h2>${categoria.nombre}</h2>
                 <div class="contenedorBotonesCat">
-                <button class="edit" onclick="editCategory(${categoria.id}, '${categoria.nombre}')"><i class="bi bi-pencil-square"></i> Editar Categoria</button>
-                <button class="delete" onclick="deleteCategory(${categoria.id})"><i class="bi bi-trash"></i> Eliminar Categoria</button>
-                <button class="add" onclick="addSubcategory(${categoria.id})"><i class="bi bi-plus-circle"></i> Agregar Subcategoría</button>
+                <button class="edit" onclick="editCategory(${categoria.id}, '${categoria.nombre}')"><i class="bi bi-pencil-square"></i> Categoria</button>
+                <button class="delete" onclick="deleteCategory(${categoria.id})"><i class="bi bi-trash"></i> Categoria</button>
+                <button class="add" onclick="addSubcategory(${categoria.id})"><i class="bi bi-plus-circle"></i> Subcategoría</button>
                 </div>
             `;
 

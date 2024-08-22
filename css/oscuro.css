@@ -2,8 +2,25 @@ body{
     background-color: rgb(31, 31, 31) !important;
 }
 
+header{
+    background-color: rgb(31, 31, 31) !important;
+    border-bottom: 1px solid rgba(143, 143, 143, 0.233) !important;
+}
+
+.navegacion{
+    background-color: rgb(31, 31, 31) !important;
+    border: 1px solid rgba(180, 180, 180, 0.205) !important;
+    border-radius: 8px;
+}
+
 h2,h3,h4,p,strong, .divPrecio{
     color: #ffff !important;
+}
+
+.title-h2, h2 {
+    font-family: raunces_120pt-semibold, serif !important;
+    color: white !important;
+    text-transform: uppercase !important;
 }
 
 .product-index{
