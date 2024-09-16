@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     `;
 
-                    productoDiv.appendChild(productoImg);
+                    /*productoDiv.appendChild(productoImg);*/
                     productoDiv.appendChild(productoInfoDiv);
                     productContainerDiv.appendChild(productoDiv);  // Añadir product-index al contenedor común
                     productContainerDiv.appendChild(productoButtonsDiv);  // Añadir los botones al contenedor común
