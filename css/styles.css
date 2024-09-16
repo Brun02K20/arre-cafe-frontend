@@ -934,6 +934,7 @@ footer p{
 }
 
 .product-index {
+    padding: 1rem;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--primario);
@@ -941,7 +942,7 @@ footer p{
     background-color: #ebebeb;
     word-wrap: break-word;
     display: grid;
-    grid-template-columns: 143px 1fr;
+    /*grid-template-columns: 143px 1fr; */
     gap: .5rem;
     margin-top: 10px;
     border-radius: 1.5rem;
@@ -957,7 +958,7 @@ footer p{
 
 @media (min-width: 768px) {
    .product-index{
-    grid-template-columns: 176px 1fr;
+    /*grid-template-columns: 176px 1fr;*/
     height: 176px;
     line-height: 20px;
    }
@@ -983,17 +984,20 @@ footer p{
 
 .product-index p{
     margin-top: 10px;
+    /*font-size: 10px;
+    line-height: 10px; */
     font-size: 10px;
     line-height: 10px;
     color: grey;
 }
 
 .product-index strong{
-    font-size: 20px;
+    /*font-size: 20px; */
+    font-size: 25px;
 }
 
 .divPrecio{
-    margin-top: 15px;
+    /*margin-top: 15px; */
     font-weight: 600;
     display: flex;
     margin-right: 50px;
