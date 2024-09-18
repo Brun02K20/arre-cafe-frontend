@@ -449,10 +449,12 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 }
 
 .horario__dia p{
+    color: rgb(97, 97, 97);
     font-size: 25px ;
 }
 
 .horario__dia h3{
+    color: rgb(97, 97, 97);
     font-size: 30px !important;
 }
 
@@ -470,6 +472,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 }
 
 .horario__titulo{
+    color: rgb(97, 97, 97);
     font-size: 30px !important;
 }
 
