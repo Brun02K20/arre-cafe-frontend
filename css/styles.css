@@ -1,8 +1,8 @@
 :root {
     --fuenteHeading: 'Roboto Condensed' !important; /* Fuente para encabezados */;
     --fuenteParrafos: "Roboto Condensed", sans-serif;
-    --primario: #906d4f;
-    --secundario: #8b735f;
+    --primario: #BA9A83;
+    --secundario: #A4AA93;
     --blanco: #ffffff;
     --negro: #5e5e5e;
     --gris: #e1e1e1;
@@ -289,7 +289,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 
 .item h3{
     margin-top: 10px;
-    color: var(--secundario);
+    color: var(--primario);
 }
 
 .item:last-child{
@@ -318,7 +318,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 }
 
 .redes a{
-    color: var(--secundario);
+    color: var(--primario);
     font-size: 40px !important;
     text-decoration: none;
 }
@@ -415,9 +415,10 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 }
 
 .horarios {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    grid-template-rows: 1fr 1fr;
+    gap: 20px;
     background-color: var(--gris);
     width: 90%;
     margin: 0 auto;
@@ -426,6 +427,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
     -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -433,6 +435,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
+        align-items: center;
     }
 }
 
@@ -917,7 +920,7 @@ footer p{
 
 
 .subcategory h3{
-    color: var(--negro);
+    color: var(--secundario);
     text-align: center;
     text-transform: none;
 }
@@ -937,7 +940,7 @@ footer p{
     padding: 1rem;
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid var(--primario);
+    border: 1px solid var(--secundario);
     border-radius: 5px;
     background-color: #ebebeb;
     word-wrap: break-word;
@@ -1299,7 +1302,7 @@ footer p{
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #8b735f, #8b735f); /* Fondo degradado con los colores primario y secundario */
+    background: linear-gradient(45deg, var(--primario), var(--primario)); /* Fondo degradado con los colores primario y secundario */
     /*background: linear-gradient(45deg, #b3b3b3d3, rgb(192, 192, 192)); /* Fondo degradado con los colores primario y secundario */
     padding: 15px 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
