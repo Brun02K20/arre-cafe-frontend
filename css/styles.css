@@ -414,6 +414,10 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
     margin-top: 20px;
 }
 
+.info p i{
+    color: var(--primario) !important;
+}
+
 .horarios {
     display: flex;
     flex-direction: column;
@@ -439,13 +443,34 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
     }
 }
 
+.horario__dia .days{
+    font-size: 25px !important;
+    font-weight: 400;
+}
+
+.horario__dia p{
+    font-size: 25px ;
+}
+
+.horario__dia h3{
+    font-size: 30px !important;
+}
+
+
+.horarios img{
+    width: 200px;
+}
+
 .titulo {
     text-align: center;
-    
 }
 
 .horario__dia {
     text-align: center;
+}
+
+.horario__titulo{
+    font-size: 30px !important;
 }
 
 .map{
