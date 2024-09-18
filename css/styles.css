@@ -1017,8 +1017,8 @@ footer p{
     margin-top: 10px;
     /*font-size: 10px;
     line-height: 10px; */
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 20px;
+    line-height: 20px;
     color: grey;
 }
 
@@ -1029,19 +1029,31 @@ footer p{
 
 .divPrecio{
     /*margin-top: 15px; */
+    color: rgb(97, 97, 97);
+    font-size: 25px;
     font-weight: 600;
     display: flex;
     margin-right: 50px;
     justify-content: end;
 }
+@media (max-width: 767px) {
+    .product-index p{
+        font-size: 18px ;
+        line-height: 18px;
+    }
+    .divPrecio{
+        font-size: 18px;
+    }
+}
+
 
 @media (min-width: 767px) {
    .product-index strong{
     font-size: 20px;
    }
    .product-index p{
-    font-size: 13px;
-    line-height: 15px;
+    font-size: 20px;
+    line-height: 30px;
    }
    .product-index img{
     height: 174px;
