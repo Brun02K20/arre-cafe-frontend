@@ -1878,5 +1878,8 @@ input:checked + .slider:before {
     }
 }
 
+#phone-number{
+    color: var(--blanco) !important;
+}
 
 
