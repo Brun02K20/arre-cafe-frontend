@@ -795,6 +795,21 @@ body {
 
 /* Footer */
 
+@media (max-width: 768px) {
+    .content-footer{
+        display: flex;
+        justify-content: space-around !important;
+    }
+    .redes-footer {
+
+        width: 50% !important;
+    }
+    .contact-footer {
+        width: 50% !important;
+    }
+}
+
+
 footer{
     background-color: #929292;
 }
