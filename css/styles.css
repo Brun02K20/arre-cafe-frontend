@@ -807,8 +807,9 @@ body {
     .contact-footer {
         width: 50% !important;
     }
-    #phone-number{
-        color: white !important;
+    .contact-footer #phone-number {
+        -webkit-text-fill-color: white !important; /* para navegadores WebKit */
+        -moz-text-fill-color: white !important;    /* para navegadores Mozilla */
     }
     #phone-icon{
         margin-top: 10px;
@@ -1878,8 +1879,6 @@ input:checked + .slider:before {
     }
 }
 
-#phone-number{
-    color: var(--blanco) !important;
-}
+
 
 
