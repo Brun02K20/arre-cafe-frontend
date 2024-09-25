@@ -807,11 +807,11 @@ body {
     .contact-footer {
         width: 50% !important;
     }
-    .content-contact-footer p{
+    #phone-number{
         color: white !important;
     }
     #phone-icon{
-        margin-top: 8px;
+        margin-top: 10px;
     }
 }
 
