@@ -772,7 +772,7 @@ body {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #8b735f; /* Color del icono */
+    background-color: var(--primario); /* Color del icono */
     width: 100px !important; /* Ajusta el tamaño del icono según sea necesario */
     height: 100px !important; /* Ajusta el tamaño del icono según sea necesario */
     mask-size: contain; /* Asegúrate de que el tamaño de la máscara sea apropiado */
