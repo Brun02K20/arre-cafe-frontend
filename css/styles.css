@@ -354,7 +354,7 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 
 
 .contacto img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block; /* Opcional: elimina el espacio debajo de la imagen */
     object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin deformarse */
