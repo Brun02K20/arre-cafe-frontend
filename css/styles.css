@@ -1879,6 +1879,55 @@ input:checked + .slider:before {
     }
 }
 
+/*Boton de wpp*/
+
+#btnClover {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 20px;
+    border: none;
+    color: white;
+    background-color: white;
+    height: 70px;
+    width: 70px;
+
+    border-radius: 100%;
+}
+
+#btnClover img{
+    font-size: 35px !important;
+    border-radius: 50%;
+}
+
+#btnClover:hover {
+    cursor: pointer;
+    background-color: #328f26;
+    transition: all 300ms;
+}
+
+#btnWpp {
+    position: fixed;
+    bottom: 100px;
+    right: 0px;
+    margin: 20px;
+    border: none;
+    color: white;
+    background-color: #25D366;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+}
+
+#btnWpp i{
+    font-size: 35px !important;
+}
+
+#btnWpp:hover {
+    cursor: pointer;
+    background-color: #07cf43;
+    transition: all 300ms;
+}
 
 
 
