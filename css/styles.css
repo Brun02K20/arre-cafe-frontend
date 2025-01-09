@@ -1908,7 +1908,7 @@ input:checked + .slider:before {
 
 #btnWpp {
     position: fixed;
-    bottom: 100px;
+    bottom: 70px;
     right: 0px;
     margin: 20px;
     border: none;
