@@ -609,7 +609,6 @@ async function addProduct(subcategoryId) {
             <input id="product-name" class="swal2-input" placeholder="Nombre del producto">
             <input id="product-price" type="number" class="swal2-input" placeholder="Precio del producto">
             <input id="product-description" class="swal2-input" placeholder="Descripción del producto">
-            <!-- <input id="product-image" type="file" class="swal2-file"> --> <!-- Comentado: campo de imagen no necesario por ahora -->
         `,
         focusConfirm: false,
         preConfirm: () => {
@@ -617,7 +616,7 @@ async function addProduct(subcategoryId) {
             const price = document.getElementById('product-price').value;
             const description = document.getElementById('product-description').value;
             // const image = document.getElementById('product-image').files[0];   // Comentado: no se usa la imagen
-            if (!name || !price || !description  /*|| !image */) {
+            if (!name || !price || !description) {
                 Swal.showValidationMessage('Todos los campos son obligatorios');
                 return false;
             }
@@ -627,7 +626,7 @@ async function addProduct(subcategoryId) {
     });
 
     if (formValues) {
-        const { name, price, description /*, image */} = formValues;
+        const { name, price, description} = formValues;
         const formData = new FormData();
         formData.append('data', JSON.stringify({ nombre: name, precio: price, descripcion: description, idSubCategoria: subcategoryId }));
         /*formData.append('file', image);*/
@@ -639,7 +638,7 @@ async function addProduct(subcategoryId) {
             });
 
             if (ok) {
-                createProductElement(subcategoryId, data.id, data.nombre, data.precio, data.descripcion /*, data.foto*/);
+                createProductElement(subcategoryId, data.id, data.nombre, data.precio, data.descripcion);
                 Swal.fire('Éxito', 'Producto agregado con éxito.', 'success');
             } else {
                 Swal.fire('Error', data.error || 'Hubo un error al agregar el producto', 'error');
@@ -650,7 +649,7 @@ async function addProduct(subcategoryId) {
         }
     }
 }
-async function editProduct(productId, currentProductName, currentProductPrice, currentProductDescription/*,  currentProductPhoto*/) {
+async function editProduct(productId, currentProductName, currentProductPrice, currentProductDescription) {
     // Usar SweetAlert2 para pedir los nuevos datos del producto
     const { value: formValues } = await Swal.fire({
         title: 'Editar Producto',
@@ -658,7 +657,7 @@ async function editProduct(productId, currentProductName, currentProductPrice, c
             <input id="swal-input1" class="swal2-input" placeholder="Nombre" value="${currentProductName || ''}">
             <input id="swal-input2" class="swal2-input" type="number" placeholder="Precio" value="${currentProductPrice || ''}">
             <input id="swal-input3" class="swal2-input" placeholder="Descripción" value="${currentProductDescription || ''}">
-            <!-- <input id="swal-input4" class="swal2-file" type="file" accept="image/*"> -->
+            
         `,
         focusConfirm: false,
         preConfirm: () => {
@@ -743,7 +742,7 @@ async function deleteProduct(productId) {
 
 
 
-function createProductElement(subcategoryId, productId, name, price, description /*, imageUrl */) {
+function createProductElement(subcategoryId, productId, name, price, description) {
     const subcategoryDiv = document.getElementById(`subcategoria-${subcategoryId}`);
     if (subcategoryDiv) {
         const productsRowDiv = subcategoryDiv.querySelector('.products-row');
@@ -777,7 +776,7 @@ function createProductElement(subcategoryId, productId, name, price, description
         productButtonsDiv.classList.add('product-buttons');
         productButtonsDiv.innerHTML = `
             <div class="cont-btnProd">
-                <button class="edit modProducto" onclick="editProduct(${productId}, '${name}', ${price}, '${description}' /*, '${imageUrl}' */)"><i class="bi bi-pencil-square"></i>Editar Producto</button>
+                <button class="edit modProducto" onclick="editProduct(${productId}, '${name}', ${price}, '${description}')"><i class="bi bi-pencil-square"></i>Editar Producto</button>
                 <button class="delete delProducto" onclick="deleteProduct(${productId})"><i class="bi bi-trash"></i>Eliminar Producto</button>
             </div>
         `;
