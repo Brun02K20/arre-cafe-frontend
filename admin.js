@@ -609,27 +609,28 @@ async function addProduct(subcategoryId) {
             <input id="product-name" class="swal2-input" placeholder="Nombre del producto">
             <input id="product-price" type="number" class="swal2-input" placeholder="Precio del producto">
             <input id="product-description" class="swal2-input" placeholder="Descripción del producto">
-            <input id="product-image" type="file" class="swal2-file">
+            <!-- <input id="product-image" type="file" class="swal2-file"> --> <!-- Comentado: campo de imagen no necesario por ahora -->
         `,
         focusConfirm: false,
         preConfirm: () => {
             const name = document.getElementById('product-name').value;
             const price = document.getElementById('product-price').value;
             const description = document.getElementById('product-description').value;
-            const image = document.getElementById('product-image').files[0];
-            if (!name || !price || !description || !image) {
+            // const image = document.getElementById('product-image').files[0];   // Comentado: no se usa la imagen
+            if (!name || !price || !description  /*|| !image */) {
                 Swal.showValidationMessage('Todos los campos son obligatorios');
                 return false;
             }
-            return { name, price, description, image };
+            // return { name, price, description, image }; // Imagen comentada
+            return { name, price, description }; // Solo lo que se usa ahora
         }
     });
 
     if (formValues) {
-        const { name, price, description, image } = formValues;
+        const { name, price, description /*, image */} = formValues;
         const formData = new FormData();
         formData.append('data', JSON.stringify({ nombre: name, precio: price, descripcion: description, idSubCategoria: subcategoryId }));
-        formData.append('file', image);
+        /*formData.append('file', image);*/
 
         try {
             const { data, ok } = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/productos`, {
@@ -638,7 +639,7 @@ async function addProduct(subcategoryId) {
             });
 
             if (ok) {
-                createProductElement(subcategoryId, data.id, data.nombre, data.precio, data.descripcion, data.foto);
+                createProductElement(subcategoryId, data.id, data.nombre, data.precio, data.descripcion /*, data.foto*/);
                 Swal.fire('Éxito', 'Producto agregado con éxito.', 'success');
             } else {
                 Swal.fire('Error', data.error || 'Hubo un error al agregar el producto', 'error');
@@ -649,7 +650,7 @@ async function addProduct(subcategoryId) {
         }
     }
 }
-async function editProduct(productId, currentProductName, currentProductPrice, currentProductDescription, currentProductPhoto) {
+async function editProduct(productId, currentProductName, currentProductPrice, currentProductDescription/*,  currentProductPhoto*/) {
     // Usar SweetAlert2 para pedir los nuevos datos del producto
     const { value: formValues } = await Swal.fire({
         title: 'Editar Producto',
@@ -657,7 +658,7 @@ async function editProduct(productId, currentProductName, currentProductPrice, c
             <input id="swal-input1" class="swal2-input" placeholder="Nombre" value="${currentProductName || ''}">
             <input id="swal-input2" class="swal2-input" type="number" placeholder="Precio" value="${currentProductPrice || ''}">
             <input id="swal-input3" class="swal2-input" placeholder="Descripción" value="${currentProductDescription || ''}">
-            <input id="swal-input4" class="swal2-file" type="file" accept="image/*">
+            <!-- <input id="swal-input4" class="swal2-file" type="file" accept="image/*"> -->
         `,
         focusConfirm: false,
         preConfirm: () => {
@@ -665,7 +666,7 @@ async function editProduct(productId, currentProductName, currentProductPrice, c
                 nombre: document.getElementById('swal-input1').value,
                 precio: document.getElementById('swal-input2').value,
                 descripcion: document.getElementById('swal-input3').value,
-                foto: document.getElementById('swal-input4').files[0]
+                //foto: document.getElementById('swal-input4').files[0]
             };
         },
         showCancelButton: true
@@ -679,9 +680,9 @@ async function editProduct(productId, currentProductName, currentProductPrice, c
                 precio: formValues.precio,
                 descripcion: formValues.descripcion
             }));
-            if (formValues.foto) {
+            /*if (formValues.foto) {
                 formData.append('file', formValues.foto);
-            }
+            } */
 
             const response = await fetchWithAuth(`https://arre-backend-one.vercel.app/api/arre/productos/${productId}`, {
                 method: 'PUT',
@@ -742,7 +743,7 @@ async function deleteProduct(productId) {
 
 
 
-function createProductElement(subcategoryId, productId, name, price, description, imageUrl) {
+function createProductElement(subcategoryId, productId, name, price, description /*, imageUrl */) {
     const subcategoryDiv = document.getElementById(`subcategoria-${subcategoryId}`);
     if (subcategoryDiv) {
         const productsRowDiv = subcategoryDiv.querySelector('.products-row');
@@ -756,9 +757,9 @@ function createProductElement(subcategoryId, productId, name, price, description
         productDiv.classList.add('product-index');
         productDiv.id = `product-${productId}`;
 
-        const productImg = document.createElement('img');
+        /*const productImg = document.createElement('img');
         productImg.src = imageUrl;
-        productImg.alt = name;
+        productImg.alt = name; */
 
         const productInfoDiv = document.createElement('div');
         productInfoDiv.classList.add('product-info');
@@ -768,7 +769,7 @@ function createProductElement(subcategoryId, productId, name, price, description
             <div class="divPrecio"> $${price} </div>
         `;
 
-        productDiv.appendChild(productImg);
+        /*productDiv.appendChild(productImg); */
         productDiv.appendChild(productInfoDiv);
 
         // Crear el div de los botones
@@ -776,7 +777,7 @@ function createProductElement(subcategoryId, productId, name, price, description
         productButtonsDiv.classList.add('product-buttons');
         productButtonsDiv.innerHTML = `
             <div class="cont-btnProd">
-                <button class="edit modProducto" onclick="editProduct(${productId}, '${name}', ${price}, '${description}', '${imageUrl}')"><i class="bi bi-pencil-square"></i>Editar Producto</button>
+                <button class="edit modProducto" onclick="editProduct(${productId}, '${name}', ${price}, '${description}' /*, '${imageUrl}' */)"><i class="bi bi-pencil-square"></i>Editar Producto</button>
                 <button class="delete delProducto" onclick="deleteProduct(${productId})"><i class="bi bi-trash"></i>Eliminar Producto</button>
             </div>
         `;
