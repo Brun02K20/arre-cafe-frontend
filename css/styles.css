@@ -244,6 +244,9 @@ img {
     font-size: 20px !important;
     padding: 0 !important;
     text-align: center;
+    border: 2px solid var(--primario);
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -252,7 +255,9 @@ img {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     column-gap: 30px;
-
+   }
+   .order{
+    margin-bottom: 0;
    }
 
 }
@@ -1917,6 +1922,7 @@ input:checked + .slider:before {
     width: 70px;
     border-radius: 100%;
     font-size: 10px;
+    border: 2px solid var(--primario); /* <--- Borde verde, puedes cambiar el color */
 }
 
 /* #btnClover img{
