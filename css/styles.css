@@ -1937,6 +1937,7 @@ input:checked + .slider:before {
     line-height: 22px;
     margin-bottom: 0;
     color: var(--primario);
+    font-weight: 500;
 }
 
 #btnWpp {
