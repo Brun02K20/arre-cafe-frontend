@@ -473,8 +473,14 @@ header .navegacion-enlace:hover, .navegacion-enlace-admin:hover {
 }
 
 .horario__dia .days{
-    font-size: 25px !important;
+    font-size: 15px !important;
     font-weight: 400;
+}
+
+@media (min-width: 768px) {
+   .horario__dia .days{
+    font-size: 25px !important;
+}
 }
 
 .horario__dia p{
@@ -1400,10 +1406,16 @@ footer p{
     overflow-x: auto;
     font-family: var(--fuenteParrafos); /* Fuente para los párrafos */
     position: sticky;
-    top: 150px;
+    top: 156px;
     left: 0;
     width: 100%;
     z-index: 100;
+}
+
+@media (min-width: 768px) {
+   #barra-busqueda{
+        top: 100px;
+   }
 }
 
 #barra-busqueda .subcategory-link {
